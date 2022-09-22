@@ -1,0 +1,16 @@
+void Stickman(int x){
+  circle(x,x/4,x/2);
+  line(x, x*2/5, x, x*5/4);
+  line(x, x*3/5, x/2, x);
+  line(x, x*3/5, x*3/2, x);
+  line(x, x*5/4, x*2/5, x*7/4);
+  line(x, x*5/4, x*8/5, x*7/4);
+}
+void setup(){
+size(400, 400);
+background(255,0,0);
+Stickman(100);
+Stickman(50);
+Stickman(120);
+Stickman(150);
+}
