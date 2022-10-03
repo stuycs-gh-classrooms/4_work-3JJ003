@@ -1,0 +1,33 @@
+int movingX, movingY, radius; 
+void setup() {
+  size(500, 500);
+  movingX = -50;
+  movingY = 150;
+  radius = 100;
+}
+
+void draw() {
+  background(255); 
+  fill(0,255,255);
+  circle(50,50,radius);
+  circle(150,50,radius);
+  circle(250,50,radius);
+  circle(350,50,radius);
+  circle(450,50,radius);
+  fill(255,0,255);
+  circleRow(movingX,550,movingY,radius);
+  movingX++;
+  if (frameCount % 6 == 0){
+    movingY++;
+  }
+}
+
+void circleRow(int startX, int endX, int y, int d){
+  circle(startX, y, d); 
+  if (startX == endX){
+    movingX = -50;
+  }
+  if (startX == endX - 100){
+  circle(-50, y, d);
+  }
+}
