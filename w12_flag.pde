@@ -1,14 +1,20 @@
-// Jonathan Yap, Jasper Li, Jordan Leung
+//Jasper Li, Jordan Leung, Jonatan Yap
 void setup() {
   size(800, 800);
   noStroke();
+  colorMode(RGB, 800);
+for (int i = 0; i < 800; i++) {
+  for (int j = 0; j < 800; j++) {
+    stroke(i, j, 800);
+    point(i, j);
+}
+}
 }
 int x = 0;
 int y = 0;
 int offsetX1 = 400;
 int offsetY1 = 400;
 void draw() { 
-  background(#61CAFC);
   fill(#D41F39);
   ellipse(271, 282, 100, 50);
   ellipse(145, 282, 100, 50);
