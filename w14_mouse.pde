@@ -1,6 +1,5 @@
 int[] xvals, yvals;
-int MAX_POINTS = 1000;
-int numPoints;
+int MAX_POINTS = 1000, numPoints;
 
 void setup() {
   size(600, 400);
