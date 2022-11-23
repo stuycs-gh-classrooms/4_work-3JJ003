@@ -1,5 +1,7 @@
 Ball[] balls;
 int score;
+color SAFE_COLOR = color(0, 255, 255);
+color COLLISION_COLOR = color(255, 0, 255);
 
 void setup() {
   size(600, 400);
@@ -20,51 +22,54 @@ void draw() {
   background(0);
     for (int i=0; i<balls.length; i++) {
     balls[i].display();
-    balls[i].move();
-  }//for
+  balls[i].move();
+    }//for
+
+  
 }//draw
 
 void keyPressed() {
-  if (key == 'r') {
+  if (key == ' ') {
     for (int i=0; i<balls.length; i++) {
-      balls[i].reset();
-    }//for
+    balls[i].reset();
+    }
   }//reset
-  else if (key == ' ') {
-    for (int i=0; i<balls.length; i++) {
-      balls[i].changeSpeed(int(random(-10,10)), int(random(-10,10)));
-    }//for
-  }//else if
   else if (key == CODED) {
     if (keyCode == UP) {
-      for (int i=0; i<balls.length; i++) {
-        balls[i].changeSpeed(0, -1);
-      }//for
+          for (int i=0; i<balls.length; i++) {
+      balls[i].changeSpeed(0, -1);
+          }//for
     }//up
+    
     else if (keyCode == DOWN) {
-      for (int i=0; i<balls.length; i++) {
-        balls[i].changeSpeed(0, 1);
-      }//for
+          for (int i=0; i<balls.length; i++) {
+
+      balls[i].changeSpeed(0, 1);
+            }//for
+
     }//down
     else if (keyCode == LEFT) {
-      for (int i=0; i<balls.length; i++) {
-        balls[i].changeSpeed(-1, 0);
-      }//for
+          for (int i=0; i<balls.length; i++) {
+
+      balls[i].changeSpeed(-1, 0);
+            }//for
+
     }//left
     else if (keyCode == RIGHT) {
-      for (int i=0; i<balls.length; i++) {
-        balls[i].changeSpeed(1, 0);
-      }//for
+          for (int i=0; i<balls.length; i++) {
+
+      balls[i].changeSpeed(1, 0);
+          }//for
     }//right
   }//non ASCII keys
-}//keyPressed
+}
 
 void mousePressed() {
-  for (int i=0; i<balls.length; i++) {
-    if ( balls[i].onBall(mouseX, mouseY) ) {
-      score+= balls[i].getScoreValue();
-      balls[i].reset();
-      println(score);
-    }//for
+      for (int i=0; i<balls.length; i++) {
+  if ( balls[i].onBall(mouseX, mouseY) ) {
+    score+= balls[i].getScoreValue();
+    balls[i].reset();
+    println(score);
+  }//for
   }//hit
 }//mousePressed
