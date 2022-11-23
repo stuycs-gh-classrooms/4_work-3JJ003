@@ -3,10 +3,12 @@ class Ball {
   int cx, cy;
   int xvelocity, yvelocity;
   int radius;
+  color c;
 
   //constructor
   Ball() {
     radius = 20;
+    c = SAFE_COLOR;
     reset();
   }//default constructor
 
@@ -22,6 +24,7 @@ class Ball {
   }//display
 
   void move() {
+    fill(c);
     if (cx <= radius || cx >= (width - 1 - radius)) {
       xvelocity*= -1;
     }//x bounce
